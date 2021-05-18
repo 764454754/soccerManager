@@ -1,0 +1,22 @@
+{
+  "name": "soccermanager",
+  "version": "1.0.0",
+  "description": "1. React 17.x\r 2. webpack\r 3. nodeJS\r 4. less\r 5. antd 4.x",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/764454754/soccerManager.git"
+  },
+  "author": "jack zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/764454754/soccerManager/issues"
+  },
+  "homepage": "https://github.com/764454754/soccerManager#readme",
+  "dependencies": {
+    "webpack": "^5.37.0"
+  }
+}

@@ -19,7 +19,7 @@ module.exports = {
   entry: './index.js',
   output: {
     filename: 'bundle.js',
-    // publicPath: '/src',     
+    publicPath: './src',     
     path: path.resolve(__dirname, 'dist')
   },
   plugins,

@@ -1,5 +1,5 @@
 function show() {
-  window.document.getElementById('app').innerText = '潘浩博真帅';
+  window.document.getElementById('app').innerText = "潘师傅过人就像过清晨的马路";
 }
 
 module.exports = show;

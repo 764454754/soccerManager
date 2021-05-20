@@ -6,11 +6,12 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const plugins = [
   new HtmlWebpackPlugin({
     title: "潘浩博真帅",
-    filename: 'bundle.html'
+    filename: '../index.html',
+    template: '../public/index.html'
   }),
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
-    filename: 'bundle.css'
+    filename: 'css/bundle.css'
   })
 ];
 
@@ -18,9 +19,9 @@ module.exports = {
   context: path.resolve(__dirname, 'src'), 
   entry: './index.js',
   output: {
-    filename: 'bundle.js',
-    // publicPath: '/src',     
-    path: path.resolve(__dirname, 'dist')
+    filename: 'js/bundle.js',
+    publicPath: './src',     
+    path: path.resolve(__dirname, 'dist/src')
   },
   plugins,
   module: {
@@ -30,7 +31,12 @@ module.exports = {
           /\.css$/i,
         ],
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './css'
+            }
+          },
           { loader: 'css-loader' }
         ],
         exclude: [

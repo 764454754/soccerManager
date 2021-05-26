@@ -27,6 +27,11 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, 'node_modules')
         ]
+      },
+      {
+        test: /\.(js|jsx)?$/,
+        exclude: [ path.resolve(__dirname, 'node_modules') ],
+        use: [ { loader: 'babel-loader' } ]
       }
     ]
   },
@@ -46,6 +51,6 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src')
     },
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.jsx', '.json']
   }
 };

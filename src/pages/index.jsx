@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,9 +10,7 @@ class App extends React.Component {
 
   render() {
     return (<>
-      {/* <Router>
-
-      </Router> */}
+      <button class='btn'>SB</button>
     </>);
   }
 }

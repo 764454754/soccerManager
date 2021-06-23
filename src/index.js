@@ -15,8 +15,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import reportWebVitals from './reportWebVitals';
-import PlayerModal from './playerModal.js'
+// import reportWebVitals from './reportWebVitals';
+// import PlayerModal from './playerModal.js'
 // 1.创建虚拟DOM两种方式
 // const VDOM= <h1>Hello,React</h1>
 //使用js创建
@@ -115,9 +115,9 @@ import PlayerModal from './playerModal.js'
 //   document.getElementById('root')
 // );
 class Demo extends React.Component{
-	
+
 	// state = {isHot:false}
-	
+
 	// showInfo = ()=>{
 	// 	console.log(this)
 	// 	const {input1} = this

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import './index.css';
-import { Button } from 'antd';
+import { myRoutes } from '~/router';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import BottomMenu from './components/bottomMenu/index';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,42 +11,22 @@ class App extends React.Component {
         };
     }
 
-    // saveFormData = (data) => {
-    //     return (event) => {
-    //         this.setState({ [data]: event.target.value });
-    //     };
-    // }
-    saveFormData(data) {
-        return (event) => {
-            this.setState({ [data]: event.target.value });
-        };
-    }
-
-    handleSubmit(e) {
-        // 阻止表单提交
-        e.preventDefault();
-        const { username, password } = this.state;
-
-        alert(`用户名：${username},密码：${password}`);
-    }
-
-    // handleSubmit = (e) => {
-    //     // 阻止表单提交
-    //     e.preventDefault();
-    //     const { username, password } = this.state;
-
-    //     alert(`用户名：${username},密码：${password}`);
-    // }
-
     render() {
-        return <>
-            <button class='btn'>Button</button>
-            <form onSubmit={this.handleSubmit}>
-                用户名:<input onChange={this.saveFormData('username')} type='text' name='username'/>
-                密码:<input onChange={this.saveFormData('password')} type='text' name='password'/>
-                <button>登录</button>
-            </form>
-        </>;
+        console.log(myRoutes);
+        console.log(lazy(() => import('./components/some/index')));
+
+        return <Fragment>
+            <Router>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                        {
+                            myRoutes.map(item => <Route key={item.path} path={item.path} exact={item.exact} component={item.component} />)
+                        }
+                    </Switch>
+                    <BottomMenu />
+                </Suspense>
+            </Router>
+        </Fragment>;
     }
 }
 

@@ -16,11 +16,11 @@ const plugins = [
 ];
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'), 
+  context: path.resolve(__dirname, 'src'),
   entry: './index.js',
   output: {
     filename: 'js/bundle.js',
-    publicPath: './src',     
+    publicPath: './src',
     path: path.resolve(__dirname, 'dist/src')
   },
   plugins,
@@ -56,8 +56,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      '~': path.resolve(__dirname, 'src/utils')
     },
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.jsx', '.json']
   }
 };

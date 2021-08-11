@@ -4,11 +4,11 @@ const plugins = [
 ];
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'), 
+  context: path.resolve(__dirname, 'src'),
   entry: './index.js',
   output: {
     filename: 'bundle.js',
-    publicPath: '/',     
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist')
   },
   plugins,
@@ -31,7 +31,17 @@ module.exports = {
       {
         test: /\.(js|jsx)?$/,
         exclude: [ path.resolve(__dirname, 'node_modules') ],
-        use: [ { loader: 'babel-loader' } ]
+        use: [
+            { loader: 'babel-loader' }
+        ]
+      },
+      {
+        test: /\.(png|jpeg|gif|svg|jpg)?$/,
+        use: [
+            {
+                loader: 'file-loader'
+            }
+        ]
       }
     ]
   },
@@ -49,7 +59,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      '~': path.resolve(__dirname, 'src/utils')
     },
     extensions: ['.js', '.jsx', '.json']
   }
